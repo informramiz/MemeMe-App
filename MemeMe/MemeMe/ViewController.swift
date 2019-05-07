@@ -42,9 +42,11 @@ class ViewController: UIViewController {
         incrementCountButton.setTitle("Click", for: .normal)
         incrementCountButton.setTitleColor(UIColor.blue, for: .normal)
         view.addSubview(incrementCountButton)
+        
+        incrementCountButton.addTarget(self, action: #selector(incrementCount), for: UIControl.Event.touchUpInside)
     }
     
-    private func incrementCount() {
+    @objc private func incrementCount() {
         count += 1
         self.counterLabel.text = "\(self.count)"
     }
