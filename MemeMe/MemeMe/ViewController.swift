@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MemeMe
 //
-//  Created by Apple on 07/05/2019.
+//  Created by Ramiz on 07/05/2019.
 //  Copyright © 2019 RR Inc. All rights reserved.
 //
 
