@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func experiment() {
-        showActivityController()
+        showAlert()
     }
     
     private func showImagePicker() {
@@ -29,5 +29,19 @@ class ViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
 
+    private func showAlert() {
+        let alertController = UIAlertController()
+        alertController.title = "My alert"
+        alertController.message = "My test message"
+        
+        //alert controller does not have any ok/cancel button of it's own so we have to add it
+        //show that a user can dismiss it.
+        let okActionButton = UIAlertAction(title: "ok", style: UIAlertAction.Style.default) { action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(okActionButton)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
