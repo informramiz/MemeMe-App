@@ -8,40 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var emojiTextField: UITextField!
+    @IBOutlet weak var colorTextField: UITextField!
+    @IBOutlet weak var characterCountTextField: UITextField!
+    @IBOutlet weak var characterCountLabel: UILabel!
+    
+    private let emojiTextFieldDelegate = EmojiTextFieldDelegate()
+    private let colorizerTextFieldDelegate = ColorizerTextFieldDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.characterCountLabel.isHidden = true
+        self.emojiTextField.delegate = emojiTextFieldDelegate
+        self.colorTextField.delegate = colorizerTextFieldDelegate
+        self.characterCountTextField.delegate = self
     }
     
-    @IBAction private func experiment() {
-        showAlert()
-    }
-    
-    private func showImagePicker() {
-        let controller = UIImagePickerController()
-        self.present(controller, animated: true, completion: nil)
-    }
-    
-    private func showActivityController() {
-        let image = UIImage()
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        self.present(controller, animated: true, completion: nil)
-    }
-
-    private func showAlert() {
-        let alertController = UIAlertController()
-        alertController.title = "My alert"
-        alertController.message = "My test message"
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let fullText = textField.text! as NSString
         
-        //alert controller does not have any ok/cancel button of it's own so we have to add it
-        //show that a user can dismiss it.
-        let okActionButton = UIAlertAction(title: "ok", style: UIAlertAction.Style.default) { action in
-            self.dismiss(animated: true, completion: nil)
-        }
+        let newText = fullText.replacingCharacters(in: range, with: string)
         
-        alertController.addAction(okActionButton)
-        present(alertController, animated: true, completion: nil)
+        characterCountLabel.isHidden = newText.isEmpty
+        characterCountLabel.text = String(newText.count)
+        return true
     }
 }
 
