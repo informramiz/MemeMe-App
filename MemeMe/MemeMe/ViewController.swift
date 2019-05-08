@@ -15,8 +15,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func experiment() {
+        showActivityController()
+    }
+    
+    private func showImagePicker() {
         let controller = UIImagePickerController()
         self.present(controller, animated: true, completion: nil)
     }
+    
+    private func showActivityController() {
+        let image = UIImage()
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.present(controller, animated: true, completion: nil)
+    }
+
 }
 
