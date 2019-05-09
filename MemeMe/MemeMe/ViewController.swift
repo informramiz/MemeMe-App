@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate {
     
     @IBAction func pickImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
     }
     
@@ -25,7 +26,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        if let originalImage = originalImage {
+            self.imageView.image = originalImage
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
 
