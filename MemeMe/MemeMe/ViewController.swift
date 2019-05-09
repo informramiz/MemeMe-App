@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var characterCountLabel: UILabel!
     
     private let limitCharacterCount = LimitTextLengthTextFieldDelegate()
+    private let currentTextFieldDelegate = CurrencyTextFieldDelegate()
     private let colorizerTextFieldDelegate = ColorizerTextFieldDelegate()
     
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         self.characterCountLabel.isHidden = true
         self.emojiTextField.delegate = limitCharacterCount
-        self.colorTextField.delegate = colorizerTextFieldDelegate
+        self.colorTextField.delegate = currentTextFieldDelegate
         self.characterCountTextField.delegate = self
     }
     

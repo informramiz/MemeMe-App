@@ -15,6 +15,7 @@
 		18F685C72283814F00D0A986 /* ColorizerTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F685C52283814F00D0A986 /* ColorizerTextFieldDelegate.swift */; };
 		18F685C82283814F00D0A986 /* EmojiTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F685C62283814F00D0A986 /* EmojiTextFieldDelegate.swift */; };
 		18F685CA2283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F685C92283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift */; };
+		18F685CC2283B27200D0A986 /* CurrencyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F685CB2283B27200D0A986 /* CurrencyTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		18F685C52283814F00D0A986 /* ColorizerTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorizerTextFieldDelegate.swift; sourceTree = "<group>"; };
 		18F685C62283814F00D0A986 /* EmojiTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiTextFieldDelegate.swift; sourceTree = "<group>"; };
 		18F685C92283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitTextLengthTextFieldDelegate.swift; sourceTree = "<group>"; };
+		18F685CB2283B27200D0A986 /* CurrencyTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				18F685C52283814F00D0A986 /* ColorizerTextFieldDelegate.swift */,
 				18F685C62283814F00D0A986 /* EmojiTextFieldDelegate.swift */,
 				18F685C92283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift */,
+				18F685CB2283B27200D0A986 /* CurrencyTextFieldDelegate.swift */,
 			);
 			path = "Text Field Delegates";
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				18F685CA2283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift in Sources */,
 				18361BC92281077F002FB618 /* ViewController.swift in Sources */,
 				18F685C72283814F00D0A986 /* ColorizerTextFieldDelegate.swift in Sources */,
+				18F685CC2283B27200D0A986 /* CurrencyTextFieldDelegate.swift in Sources */,
 				18361BC72281077F002FB618 /* AppDelegate.swift in Sources */,
 				18F685C82283814F00D0A986 /* EmojiTextFieldDelegate.swift in Sources */,
 			);
