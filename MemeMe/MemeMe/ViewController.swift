@@ -9,16 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func pickImage(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    fileprivate func pickImage(source: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+        imagePickerController.sourceType = source
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func pickImageFromGallery(_ sender: Any) {
+        pickImage(source: .photoLibrary)
+    }
+    
+    @IBAction func pickImageFromCamera(_ sender: Any) {
+        pickImage(source: .camera)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

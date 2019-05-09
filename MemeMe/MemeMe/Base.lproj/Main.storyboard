@@ -24,12 +24,17 @@
                                     <constraint firstAttribute="height" constant="178" id="0xA-aj-gfH"/>
                                 </constraints>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7od-42-9Yi">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7od-42-9Yi" userLabel="Toolbar1">
+                                <rect key="frame" x="0.0" y="1229" width="508" height="49"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="m1a-hN-DYs">
+                                    <barButtonItem title="Gallery" width="191.5" id="m1a-hN-DYs">
                                         <connections>
-                                            <action selector="pickImage:" destination="BYZ-38-t0r" id="Uli-Eq-jCV"/>
+                                            <action selector="pickImageFromGallery:" destination="BYZ-38-t0r" id="RxX-fY-1yk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Camera" id="JVt-93-QYR">
+                                        <connections>
+                                            <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="FF7-oW-CWV"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -37,7 +42,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7od-42-9Yi" firstAttribute="top" secondItem="cJw-56-v6u" secondAttribute="bottom" constant="281" id="EQe-pe-Qro" userLabel="Toolbar.top = Image View.bottom + 16"/>
                             <constraint firstItem="7od-42-9Yi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UiB-VA-joK"/>
                             <constraint firstItem="7od-42-9Yi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="atv-W4-Bcs"/>
                             <constraint firstItem="cJw-56-v6u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="gsF-ic-QkU"/>
@@ -48,6 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="JVt-93-QYR" id="g1N-2k-nf0"/>
                         <outlet property="imageView" destination="cJw-56-v6u" id="aS0-Z3-lwU"/>
                     </connections>
                 </viewController>
