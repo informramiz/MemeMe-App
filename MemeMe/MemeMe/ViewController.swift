@@ -119,7 +119,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //get the height of the keyboard and move the root view's bottom up by
     //keyboard height
     @objc private func keyboardWillShow(_ notification: Notification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        //only bottom text field can be covered by keyboard so
+        //only move view up if bottom text field is being edited
+        if bottomTextField.isEditing {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     //selector for keyboard hide notification
