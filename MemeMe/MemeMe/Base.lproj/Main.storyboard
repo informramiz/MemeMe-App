@@ -39,17 +39,15 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwZ-QE-CKh" userLabel="Bottom Field">
-                                <rect key="frame" x="90" y="699" width="235" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwZ-QE-CKh" userLabel="Bottom Field">
+                                <rect key="frame" x="90" y="565" width="235" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZi-FN-vTg" userLabel="Top Field">
-                                <rect key="frame" x="90" y="149" width="235" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZi-FN-vTg" userLabel="Top Field">
+                                <rect key="frame" x="90" y="293" width="235" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -58,10 +56,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qwZ-QE-CKh" secondAttribute="trailing" constant="89" id="2N8-Ph-PvZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GZi-FN-vTg" secondAttribute="trailing" constant="89" id="HkZ-Lc-Tql"/>
+                            <constraint firstItem="qwZ-QE-CKh" firstAttribute="top" secondItem="cJw-56-v6u" secondAttribute="bottom" constant="28" id="Klb-uJ-ELT"/>
+                            <constraint firstItem="cJw-56-v6u" firstAttribute="top" secondItem="GZi-FN-vTg" secondAttribute="bottom" constant="36" id="MSy-je-loq"/>
+                            <constraint firstItem="GZi-FN-vTg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="SGD-ai-Qdi"/>
                             <constraint firstItem="7od-42-9Yi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UiB-VA-joK"/>
                             <constraint firstItem="7od-42-9Yi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="atv-W4-Bcs"/>
                             <constraint firstItem="cJw-56-v6u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="gsF-ic-QkU"/>
                             <constraint firstItem="7od-42-9Yi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jxP-mn-hg5"/>
+                            <constraint firstItem="qwZ-QE-CKh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="tbP-z1-J5q"/>
                             <constraint firstItem="cJw-56-v6u" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uZl-Ur-n9a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cJw-56-v6u" secondAttribute="trailing" constant="89" id="wlk-oC-Bd9"/>
                         </constraints>
