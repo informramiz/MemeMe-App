@@ -17,8 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //apply default text attributes for our text fields
     private let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.strokeWidth: 2,
+        NSAttributedString.Key.strokeColor: UIColor.white,
+        NSAttributedString.Key.strokeWidth: 3,
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
     ]
@@ -27,7 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         //apply our custom define default text attributes
         topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = NSTextAlignment.center
         bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = NSTextAlignment.center
         // Do any additional setup after loading the view.
         topTextField.delegate = self
         bottomTextField.delegate = self
@@ -72,6 +74,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if topTextField.text!.isEmpty {
+            textField.text = "TOP"
+        }
+        
+        if bottomTextField.text!.isEmpty {
+            bottomTextField.text = "Bottom"
+        }
     }
 }
 
