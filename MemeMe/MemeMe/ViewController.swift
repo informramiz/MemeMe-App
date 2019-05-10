@@ -27,12 +27,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         //apply our custom define default text attributes
         topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment.center
         bottomTextField.defaultTextAttributes = memeTextAttributes
+        
+        //as setting textField.defaultTextAttributes reset text alignment
+        //so set text alignment here to make sure text is center aligned
+        topTextField.textAlignment = NSTextAlignment.center
         bottomTextField.textAlignment = NSTextAlignment.center
-        // Do any additional setup after loading the view.
+        
+        // register our controller as delegate for both top/bottom text fields
         topTextField.delegate = self
         bottomTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
