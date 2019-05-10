@@ -22,8 +22,8 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7od-42-9Yi" userLabel="Media Options Toolbar">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7od-42-9Yi" userLabel="Media Options Toolbar">
+                                <rect key="frame" x="32" y="813" width="350" height="49"/>
                                 <items>
                                     <barButtonItem title="Gallery" id="m1a-hN-DYs">
                                         <connections>
@@ -61,10 +61,10 @@
                             <constraint firstItem="qwZ-QE-CKh" firstAttribute="width" secondItem="cJw-56-v6u" secondAttribute="width" id="TzF-9A-AXd"/>
                             <constraint firstItem="7od-42-9Yi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UiB-VA-joK"/>
                             <constraint firstItem="cJw-56-v6u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="a7b-6F-rOC"/>
-                            <constraint firstItem="7od-42-9Yi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="atv-W4-Bcs"/>
+                            <constraint firstItem="7od-42-9Yi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="atv-W4-Bcs"/>
                             <constraint firstItem="GZi-FN-vTg" firstAttribute="width" secondItem="cJw-56-v6u" secondAttribute="width" id="gRZ-ZX-USh"/>
                             <constraint firstItem="cJw-56-v6u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gsF-ic-QkU"/>
-                            <constraint firstItem="7od-42-9Yi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jxP-mn-hg5"/>
+                            <constraint firstItem="7od-42-9Yi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-32" id="jxP-mn-hg5"/>
                             <constraint firstItem="GZi-FN-vTg" firstAttribute="top" secondItem="cJw-56-v6u" secondAttribute="top" id="qsc-Gh-JEo"/>
                             <constraint firstItem="qwZ-QE-CKh" firstAttribute="bottom" secondItem="cJw-56-v6u" secondAttribute="bottom" id="tu6-5q-6c1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cJw-56-v6u" secondAttribute="trailing" id="wlk-oC-Bd9"/>
