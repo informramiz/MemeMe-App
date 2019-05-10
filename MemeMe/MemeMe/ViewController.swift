@@ -14,7 +14,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    @IBOutlet weak var navBar: UINavigationBar!
     
     //apply default text attributes for our text fields
     private let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -41,8 +40,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //only show camera button if camera present
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,19 +53,45 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //stop listening to keyboard show/hide notifications
     }
     
-    fileprivate func pickImage(source: UIImagePickerController.SourceType) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = source
-        present(imagePickerController, animated: true, completion: nil)
-    }
-    
+    //MARK: Actions
     @IBAction func pickImageFromGallery(_ sender: Any) {
         pickImage(source: .photoLibrary)
     }
     
     @IBAction func pickImageFromCamera(_ sender: Any) {
         pickImage(source: .camera)
+    }
+    
+    fileprivate func showNoMemeErrorAlert() {
+        let controller = UIAlertController()
+        controller.title = "MemeMe Share"
+        controller.message = "Please prepare a meme first"
+        
+        let okAction = UIAlertAction(title: "ok", style: .default) { action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        controller.addAction(okAction)
+        
+        present(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareMeme(_ sender: Any) {
+        if (imageView.image == nil) {
+            showNoMemeErrorAlert()
+        } else {
+            //TODO: complete share functionality
+        }
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        imageView.image = nil
+    }
+    
+    fileprivate func pickImage(source: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = source
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
