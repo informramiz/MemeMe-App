@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     //apply default text attributes for our text fields
     private let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -40,6 +41,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //only show camera button if camera present
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
