@@ -62,10 +62,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickImage(source: .camera)
     }
     
-    fileprivate func showNoMemeErrorAlert() {
+    fileprivate func showErrorAlert(_ msg: String) {
         let controller = UIAlertController()
-        controller.title = "MemeMe Share"
-        controller.message = "Please prepare a meme first"
+        controller.title = "MemeMe"
+        controller.message = msg
         
         let okAction = UIAlertAction(title: "ok", style: .default) { action in
             self.dismiss(animated: true, completion: nil)
@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func shareMeme(_ sender: Any) {
         if (imageView.image == nil) {
-            showNoMemeErrorAlert()
+            showErrorAlert("Please prepare meme first")
         } else {
             //TODO: complete share functionality
         }
