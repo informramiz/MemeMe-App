@@ -101,7 +101,11 @@
                     <connections>
                         <outlet property="bottomTextField" destination="qwZ-QE-CKh" id="FS2-f3-kES"/>
                         <outlet property="cameraButton" destination="JVt-93-QYR" id="g1N-2k-nf0"/>
+                        <outlet property="cancelButton" destination="FpV-hg-cc8" id="ebv-30-0xe"/>
                         <outlet property="imageView" destination="cJw-56-v6u" id="aS0-Z3-lwU"/>
+                        <outlet property="mediaOptionsToolbar" destination="7od-42-9Yi" id="Hqv-i9-29d"/>
+                        <outlet property="navBar" destination="0Rz-47-Efg" id="9fP-Pg-Ces"/>
+                        <outlet property="shareButton" destination="fBu-AS-hIP" id="igN-05-lL2"/>
                         <outlet property="topTextField" destination="GZi-FN-vTg" id="kjb-EL-srT"/>
                     </connections>
                 </viewController>
