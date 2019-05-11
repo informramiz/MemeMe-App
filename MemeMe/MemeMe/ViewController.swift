@@ -81,7 +81,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    fileprivate func showErrorAlert(_ msg: String) {
+    private func showErrorAlert(_ msg: String) {
         let controller = UIAlertController()
         controller.title = "MemeMe"
         controller.message = msg
@@ -93,12 +93,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(controller, animated: true, completion: nil)
     }
     
-    @IBAction func shareMeme(_ sender: Any) {
-        if (imageView.image == nil) {
-            showErrorAlert("Please prepare meme first")
-        } else {
-            //TODO: complete share functionality
+    private func setNavBarAndToolbarVisibility(isVisible: Bool) {
+        navBar.isHidden = !isVisible
+        mediaOptionsToolbar.isHidden = !isVisible
+    }
+    
+    private func getMemedImage() -> UIImage {
+        //hide nav bar and toolbars so that they are not part of memed image
+        setNavBarAndToolbarVisibility(isVisible: false)
+        
+        //TODO: save image here
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        //show nav bar/toolbars again
+        setNavBarAndToolbarVisibility(isVisible: true)
+        return image
+    }
+    
+    private func shareCurrentMeme(_ meme: Meme) {
+        let shareController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
+        shareController.completionWithItemsHandler = {_, success, _, error in
+            if success {
+                self.showErrorAlert("Image saved")
+            } else {
+                let errorMsg = error?.localizedDescription ??  "Sharing cancelled"
+                self.showErrorAlert(errorMsg)
+            }
         }
+        present(shareController, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareMeme(_ sender: Any) {
+        let memedImage = getMemedImage()
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
+                        originalImage: imageView.image!, memedImage: memedImage)
+        shareCurrentMeme(meme)
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -106,7 +137,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         updateNavBarButtonsStatus()
     }
     
-    // Delegate methods
+    //MARK: Delegate methods
     
     //called when image picker action is cancelled
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -179,6 +210,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
-    
 }
 
