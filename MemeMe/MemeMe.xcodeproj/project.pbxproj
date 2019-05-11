@@ -12,6 +12,7 @@
 		18361BCC2281077F002FB618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18361BCA2281077F002FB618 /* Main.storyboard */; };
 		18361BCE22810780002FB618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18361BCD22810780002FB618 /* Assets.xcassets */; };
 		18361BD122810780002FB618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18361BCF22810780002FB618 /* LaunchScreen.storyboard */; };
+		18D74AAC2287867200F7F761 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D74AAB2287867200F7F761 /* Meme.swift */; };
 		18F685C72283814F00D0A986 /* ColorizerTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F685C52283814F00D0A986 /* ColorizerTextFieldDelegate.swift */; };
 		18F685C82283814F00D0A986 /* EmojiTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F685C62283814F00D0A986 /* EmojiTextFieldDelegate.swift */; };
 		18F685CA2283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F685C92283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift */; };
@@ -26,6 +27,7 @@
 		18361BCD22810780002FB618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18361BD022810780002FB618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18361BD222810780002FB618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D74AAB2287867200F7F761 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		18F685C52283814F00D0A986 /* ColorizerTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorizerTextFieldDelegate.swift; sourceTree = "<group>"; };
 		18F685C62283814F00D0A986 /* EmojiTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiTextFieldDelegate.swift; sourceTree = "<group>"; };
 		18F685C92283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitTextLengthTextFieldDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		18361BC52281077F002FB618 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				18D74AAA2287865900F7F761 /* models */,
 				18F685C4228380EC00D0A986 /* Text Field Delegates */,
 				18361BC62281077F002FB618 /* AppDelegate.swift */,
 				18361BC82281077F002FB618 /* ViewController.swift */,
@@ -71,6 +74,14 @@
 				18361BD222810780002FB618 /* Info.plist */,
 			);
 			path = MemeMe;
+			sourceTree = "<group>";
+		};
+		18D74AAA2287865900F7F761 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				18D74AAB2287867200F7F761 /* Meme.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		18F685C4228380EC00D0A986 /* Text Field Delegates */ = {
@@ -157,6 +168,7 @@
 			files = (
 				18F685CA2283ADA700D0A986 /* LimitTextLengthTextFieldDelegate.swift in Sources */,
 				18361BC92281077F002FB618 /* ViewController.swift in Sources */,
+				18D74AAC2287867200F7F761 /* Meme.swift in Sources */,
 				18F685C72283814F00D0A986 /* ColorizerTextFieldDelegate.swift in Sources */,
 				18F685CC2283B27200D0A986 /* CurrencyTextFieldDelegate.swift in Sources */,
 				18361BC72281077F002FB618 /* AppDelegate.swift in Sources */,
