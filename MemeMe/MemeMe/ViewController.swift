@@ -98,6 +98,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         mediaOptionsToolbar.isHidden = !isVisible
     }
     
+    @IBAction func shareMeme(_ sender: Any) {
+        let memedImage = getMemedImage()
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
+                        originalImage: imageView.image!, memedImage: memedImage)
+        shareCurrentMeme(meme)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        imageView.image = nil
+        updateNavBarButtonsStatus()
+    }
+    
     private func getMemedImage() -> UIImage {
         //hide nav bar and toolbars so that they are not part of memed image
         setNavBarAndToolbarVisibility(isVisible: false)
@@ -116,7 +128,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let shareController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         shareController.completionWithItemsHandler = {_, success, _, error in
             if success {
-                self.showErrorAlert("Image saved")
+                self.saveMemedImage(meme.memedImage)
             } else {
                 let errorMsg = error?.localizedDescription ??  "Sharing cancelled"
                 self.showErrorAlert(errorMsg)
@@ -125,16 +137,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(shareController, animated: true, completion: nil)
     }
     
-    @IBAction func shareMeme(_ sender: Any) {
-        let memedImage = getMemedImage()
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!,
-                        originalImage: imageView.image!, memedImage: memedImage)
-        shareCurrentMeme(meme)
+    private func saveMemedImage(_ memeImage: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(memeImage, self, #selector(onImageSaveResult(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        imageView.image = nil
-        updateNavBarButtonsStatus()
+    @objc private func onImageSaveResult(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            showErrorAlert(error.localizedDescription)
+        } else {
+            showErrorAlert("Image saved successfully")
+        }
     }
     
     //MARK: Delegate methods
