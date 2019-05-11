@@ -50,11 +50,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         //start listening for keyboard show/hide notifications
         subscribeToKeyboardNotifications()
+        updateNavBarButtonsStatus()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         //stop listening to keyboard show/hide notifications
+    }
+    
+    //sets the status of nav buttons to enabled/disabled depending on if image is loaded or not
+    private func updateNavBarButtonsStatus() {
+        let isImageLoad = imageView.image != nil
+        shareButton.isEnabled = isImageLoad
+        cancelButton.isEnabled = isImageLoad
     }
     
     //MARK: Actions
@@ -66,6 +74,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickImage(source: .camera)
     }
     
+    fileprivate func pickImage(source: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = source
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     fileprivate func showErrorAlert(_ msg: String) {
         let controller = UIAlertController()
         controller.title = "MemeMe"
@@ -75,7 +90,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.dismiss(animated: true, completion: nil)
         }
         controller.addAction(okAction)
-        
         present(controller, animated: true, completion: nil)
     }
     
@@ -89,28 +103,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func cancel(_ sender: Any) {
         imageView.image = nil
+        updateNavBarButtonsStatus()
     }
     
-    fileprivate func pickImage(source: UIImagePickerController.SourceType) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = source
-        present(imagePickerController, animated: true, completion: nil)
-    }
+    // Delegate methods
     
+    //called when image picker action is cancelled
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     
+    //called when image is successfully selected by the user
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         if let originalImage = originalImage {
             self.imageView.image = originalImage
         }
         dismiss(animated: true, completion: nil)
+        updateNavBarButtonsStatus()
     }
     
-    // Delegate methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text! == "TOP" || textField.text! == "BOTTOM" {
             textField.text = ""
